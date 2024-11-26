@@ -23,8 +23,8 @@ switch (preg_match_all("/\//", $_SERVER["PHP_SELF"])) {
 }
 
 // Acceder a la clase Promocion y su controlador
-include "$raiz/modelo/cls_Promocion.php";
-include "$raiz/controlador/ctrl_Promocion.php";
+include "./modelo/cls_Promocion.php";
+include "./controlador/ctrl_Promocion.php";
 
 // Invocar método del controlador
 $ctrl = new ControladorPromocion();

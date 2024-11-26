@@ -64,7 +64,6 @@ $rsBtn = mysqli_query($cn, $sqlBtn);
                 <?php
                 $arr_link = explode("/", $_SERVER["PHP_SELF"]);
                 $current_link = implode("/", array_splice($arr_link,3,-1))."/";
-                error_log($current_link);
                 while ($row = mysqli_fetch_array($rsNav)) {
                     $label = $row["item_label"];
                     $link = $row["item_link"];
