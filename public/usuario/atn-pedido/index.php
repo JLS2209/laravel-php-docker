@@ -1,0 +1,65 @@
+<?php
+// Iniciar o reanudar sesión
+session_start();
+
+// Restringir acceso si el id_rol no corresponde a empleado de atención (3)
+if (! (isset($_SESSION["id_rol"]) && $_SESSION["id_rol"] == 3)) {
+    error_log("Intento de acceso sin credenciales adecuadas de empleado de atención!");
+    header("location: ../../");
+}
+
+// Acceder a la clase Conectar
+include "../../cls_conectar/cls_Conectar.php";
+?>
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Restaurante Sazón & Fuego</title>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!--Customized CSS-->
+    <style>
+        /*Estilos de los nav-pills en la barra de navegación*/
+        .nav-pills .nav-link {
+            color: #F7BA00;
+        }
+
+        .nav-pills .nav-link.active {
+            color: black;
+            background-color: #F7BA00;
+            font-weight: bold;
+        }
+
+        /* Invierte el color de los controles del audio (negro en Chrome)*/
+        audio {
+            filter: invert(90%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Incluir Barra de menús de navegación -->
+    <?php include "../../templates/nav.php"; ?>
+
+    <!-- Cuerpo de la página -->
+
+    <!-- Incluir Pie de página -->
+    <?php include "../../templates/footer.php"; ?>
+
+    <!--JQuery JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!--Fontawesome JS-->
+    <script src="https://kit.fontawesome.com/1da5200486.js" crossorigin="anonymous"></script>
+    <!--SweetAlert JS-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.1/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
