@@ -16,13 +16,13 @@ $rol = isset($_SESSION["id_rol"]) ? $_SESSION["id_rol"] : "1";
 // Variable para retroceder a la raíz del proyecto desde el link actual
 $raiz = "";
 switch (preg_match_all("/\//", $_SERVER["PHP_SELF"])) {
-    case 2:
+    case 3:
         $raiz = ".";
         break;
-    case 3:
+    case 4:
         $raiz = "..";
         break;
-    case 4:
+    case 5:
         $raiz = "../..";
         break;
 }
@@ -63,7 +63,8 @@ $rsBtn = mysqli_query($cn, $sqlBtn);
             <ul class="nav me-auto nav-pills nav-fill align-items-center">
                 <?php
                 $arr_link = explode("/", $_SERVER["PHP_SELF"]);
-                $current_link = implode("/", array_splice($arr_link,2,-1))."/";
+                $current_link = implode("/", array_splice($arr_link,3,-1))."/";
+                error_log($current_link);
                 while ($row = mysqli_fetch_array($rsNav)) {
                     $label = $row["item_label"];
                     $link = $row["item_link"];

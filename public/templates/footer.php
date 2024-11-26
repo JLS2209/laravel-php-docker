@@ -16,13 +16,13 @@ $rol = isset($_SESSION["id_rol"]) ? $_SESSION["id_rol"] : "1";
 // Variable para retroceder a la raíz del proyecto desde el link actual
 $raiz = "";
 switch (preg_match_all("/\//", $_SERVER["PHP_SELF"])) {
-    case 2:
+    case 3:
         $raiz = ".";
         break;
-    case 3:
+    case 4:
         $raiz = "..";
         break;
-    case 4:
+    case 5:
         $raiz = "../..";
         break;
 }

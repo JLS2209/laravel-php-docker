@@ -11,14 +11,14 @@ if (!class_exists("Conectar")) {
 }
 
 switch (preg_match_all("/\//", $_SERVER["PHP_SELF"])) {
-    case 2:
+    case 3:
         $raiz = ".";
         break;
-    case 3:
+    case 4:
         $raiz = "..";
         break;
-    case 4:
-        $raiz = "...";
+    case 5:
+        $raiz = "../..";
         break;
 }
 
